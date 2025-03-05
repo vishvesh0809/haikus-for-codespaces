@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>REGISTRATION FORM</title>
+        <style>
+            h1 {
+                color: rgb(17, 13, 235);
+            }
+        </style>
+        <script>
+            function validateform() {
+                // Validate username
+                const username = document.forms["myform"]["name"].value;
+                if (username.length > 8) {
+                    alert("Username must be less than 8 characters");
+                    return false;
+                }
+
+                // Validate password
+                const password = document.forms["myform"]["ps"].value;
+                const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+                if (!passwordPattern.test(password)) {
+                    alert("Password must contain at least one number, one lowercase letter, one uppercase letter, and be at least 8 characters long.");
+                    return false;
+                }
+
+                // Validate email
+                const email = document.forms["myform"]["email"].value;
+                const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+                if (!emailPattern.test(email)) {
+                    alert("Please enter a valid email.");
+                    return false;
+                }
+
+                // If all validations pass
+                alert("Registration successful");
+                return true;
+            }
+        </script>
+    </head>
+    <body bgcolor="pink">
+        <form name="myform" onsubmit="return validateform()">
+            <center>
+                <img src="https://www.vbithydexams.in/Images/SBICON/New%20folder/Header.png" width="400px" height="100px">
+                <h1>REGISTRATION FORM</h1>
+                FIRST NAME: <input type="text" name="fname" required><br><br>
+                LAST NAME: <input type="text" name="lname" required><br><br>
+                EMAIL: <input type="email" name="email" required><br><br>
+                USERNAME: <input type="text" name="name" required><br><br>
+                PASSWORD: <input type="password" name="ps" required><br><br>
+                GENDER: <br>
+                Male <input type="radio" name="gender" value="male">
+                Female <input type="radio" name="gender" value="female"><br><br>
+                ADDRESS: <textarea name="address" required></textarea><br><br>
+                MOBILE NUMBER: <input type="text" name="mobile" required><br><br>
+                <input type="submit" value="Register">
+            </center>
+        </form>
+    </body>
+</html>
